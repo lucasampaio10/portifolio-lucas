@@ -18,7 +18,7 @@ const Projects = () => {
         'Notificações push personalizadas'
       ],
       status: 'Concluído',
-      github: 'https://github.com/lucasrocha0402/dashinvest',
+      github: 'https://github.com/lucasampaio10/DashInvest',
       demo: 'https://dashinvest-demo.vercel.app',
       color: 'from-green-500 to-emerald-600'
     },
