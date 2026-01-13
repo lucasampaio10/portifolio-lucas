@@ -1,4 +1,5 @@
 import { ArrowDown, Download, ExternalLink } from 'lucide-react'
+import Image from 'next/image'
 
 const Hero = () => {
   return (
@@ -76,10 +77,16 @@ const Hero = () => {
           <div className="animate-slide-up lg:justify-self-end">
             <div className="relative">
               {/* Placeholder for profile image */}
-              <div className="w-80 h-80 mx-auto lg:w-96 lg:h-96 bg-gradient-to-br from-primary-200 to-primary-400 rounded-full flex items-center justify-center shadow-2xl">
-                <div className="text-8xl lg:text-9xl">👨‍💻</div>
-              </div>
-              
+               <div className="w-80 h-80 mx-auto lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl">
+                  <Image 
+                    src="/avatar.png" 
+                    alt="Lucas - Desenvolvedor Full Stack" 
+                    width={384}
+                    height={384}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-20"></div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400 rounded-full opacity-20"></div>
