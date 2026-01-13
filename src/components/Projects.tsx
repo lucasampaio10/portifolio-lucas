@@ -38,7 +38,7 @@ const Projects = () => {
         'Sincronização em nuvem'
       ],
       status: 'Em desenvolvimento',
-      github: 'https://github.com/lucasrocha0402/app-financeiro',
+      github: 'https://github.com/lucasampaio10/app-financeiro',
       demo: null,
       color: 'from-blue-500 to-cyan-600'
     },
@@ -58,7 +58,7 @@ const Projects = () => {
         'Dashboard administrativo'
       ],
       status: 'Concluído',
-      github: 'https://github.com/lucasrocha0402/lifeplus',
+      github: 'https://github.com/lucasampaio10/life_pluss',
       demo: 'https://lifeplus-app.vercel.app',
       color: 'from-red-500 to-pink-600'
     },
@@ -102,7 +102,7 @@ const Projects = () => {
         'Integração com APIs externas'
       ],
       status: 'Concluído',
-      github: 'https://github.com/lucasrocha0402/dataviz-dashboard',
+      github: 'https://github.com/lucasampaio10/traidehubfront',
       demo: 'https://dataviz-dashboard.vercel.app',
       color: 'from-cyan-500 to-blue-600'
     }

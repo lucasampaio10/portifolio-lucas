@@ -83,3 +83,8 @@ if ($LASTEXITCODE -eq 0) {
 
 Write-Host "`n✨ Script concluído!" -ForegroundColor Green
 
+
+
+
+
+

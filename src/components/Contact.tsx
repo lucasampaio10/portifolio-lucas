@@ -49,7 +49,7 @@ const Contact = () => {
     {
       name: 'GitHub',
       icon: <Github className="w-6 h-6" />,
-      url: 'https://github.com/lucasrocha0402',
+      url: 'https://github.com/lucasampaio10',
       color: 'hover:text-gray-900',
       description: 'Veja meus projetos'
     },
@@ -72,11 +72,10 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Create mailto link with form data
     const subject = encodeURIComponent(formData.subject || 'Contato via Portfólio')
     const body = encodeURIComponent(`
-Nome: ${formData.name}
-Email: ${formData.email}
+    Nome: ${formData.name}
+    Email: ${formData.email}
 
 Mensagem:
 ${formData.message}
@@ -84,7 +83,6 @@ ${formData.message}
     
     window.location.href = `mailto:lukasrocha0402@gmail.com?subject=${subject}&body=${body}`
     
-    // Reset form
     setFormData({
       name: '',
       email: '',
@@ -96,7 +94,6 @@ ${formData.message}
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Vamos Trabalhar Juntos?
@@ -108,7 +105,6 @@ ${formData.message}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Informações de Contato</h3>

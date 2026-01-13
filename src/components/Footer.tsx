@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Right side - Social Links */}
           <div className="flex items-center space-x-6">
             <a
-              href="https://github.com/lucasrocha0402"
+              href="https://github.com/lucasampaio10"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors duration-200"

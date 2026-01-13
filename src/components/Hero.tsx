@@ -5,8 +5,7 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-primary-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
-          <div className="animate-fade-in">
+         <div className="animate-fade-in">
             <div className="mb-4">
               <span className="px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
                 👋 Olá! Eu sou desenvolvedor
@@ -26,7 +25,6 @@ const Hero = () => {
               Transformo ideias em soluções mobile e web robustas, com foco em clean architecture e melhores práticas.
             </p>
 
-            {/* Tech Stack Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
               {['Flutter', 'C#/.NET', 'React Native', 'Supabase', 'Azure', 'Docker', 'QA'].map((tech) => (
                 <span
@@ -38,7 +36,6 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#projects"
@@ -61,11 +58,11 @@ const Hero = () => {
             {/* Stats */}
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-gray-200">
               <div>
-                <div className="text-2xl font-bold text-primary-600">2+</div>
+                <div className="text-2xl font-bold text-primary-600">1+</div>
                 <div className="text-gray-600 text-sm">Anos de Experiência</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-primary-600">5</div>
+                <div className="text-2xl font-bold text-primary-600">6</div>
                 <div className="text-gray-600 text-sm">Projetos Desenvolvidos</div>
               </div>
               <div>

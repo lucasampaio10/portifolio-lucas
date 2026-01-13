@@ -40,7 +40,7 @@ const Header = () => {
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com/lucasrocha0402"
+              href="https://github.com/lucasampaio10"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
@@ -89,7 +89,7 @@ const Header = () => {
             </nav>
             <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-gray-200">
               <a
-                href="https://github.com/lucasrocha0402"
+                href="https://github.com/lucasampaio10"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
