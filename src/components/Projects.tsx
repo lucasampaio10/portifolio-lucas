@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Aplicativo Flutter para controle de investimentos com clean architecture, gráficos interativos e análise de portfólio em tempo real.',
       longDescription: 'Desenvolvido com foco em performance e escalabilidade, utilizando princípios de clean architecture. Inclui dashboard personalizado, histórico de transações e notificações push.',
       icon: <TrendingUp className="w-6 h-6" />,
-      video: 'public/dashinvest.mp4', // Placeholder
+      video: '/dashinvest-demo.mp4', // Placeholder
       technologies: ['Flutter', 'Dart', 'Firebase', 'Clean Architecture', 'BLoC Pattern'],
       features: [
         'Dashboard interativo com gráficos',
