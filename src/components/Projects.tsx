@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Aplicativo Flutter para controle de investimentos com clean architecture, gráficos interativos e análise de portfólio em tempo real.',
       longDescription: 'Desenvolvido com foco em performance e escalabilidade, utilizando princípios de clean architecture. Inclui dashboard personalizado, histórico de transações e notificações push.',
       icon: <TrendingUp className="w-6 h-6" />,
-      image: '/projects/dashinvest.jpg', // Placeholder
+      video: 'public/dashinvest.mp4', // Placeholder
       technologies: ['Flutter', 'Dart', 'Firebase', 'Clean Architecture', 'BLoC Pattern'],
       features: [
         'Dashboard interativo com gráficos',
@@ -19,7 +19,7 @@ const Projects = () => {
       ],
       status: 'Concluído',
       github: 'https://github.com/lucasampaio10/DashInvest',
-      demo: 'https://dashinvest-demo.vercel.app',
+      demo: 'https://github.com/lucasampaio10/DashInvest/releases/tag/portifolio',
       color: 'from-green-500 to-emerald-600'
     },
     {
@@ -134,13 +134,24 @@ const Projects = () => {
               {/* Project Image */}
               <div className="w-full lg:w-1/2">
                 <div className="relative group">
-                  {/* Placeholder for project image */}
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center">
-                    <div className={`p-8 rounded-full bg-gradient-to-r ${project.color} text-white`}>
-                      <Smartphone className="w-16 h-16" />
+                  {/* Project video or placeholder */}
+                  {project.video ? (
+                    <video
+                      className="aspect-video w-full rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={project.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center">
+                      <div className={`p-8 rounded-full bg-gradient-to-r ${project.color} text-white`}>
+                        <Smartphone className="w-16 h-16" />
+                      </div>
                     </div>
-                  </div>
-                  
+                  )}
                   {/* Overlay with demo/github links */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <div className="flex space-x-4">
