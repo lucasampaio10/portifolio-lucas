@@ -29,7 +29,7 @@ const Projects = () => {
       description: 'Aplicativo completo para controle de receitas e despesas com gráficos dinâmicos, categorização inteligente e autenticação segura.',
       longDescription: 'Sistema robusto de controle financeiro pessoal com integração Firebase/Supabase, análise de gastos por categoria e relatórios mensais detalhados.',
       icon: <DollarSign className="w-6 h-6" />,
-      image: '/projects/app-financeiro.jpg', // Placeholder  
+      video: '/app-financeiro.mp4', // Placeholder  
       technologies: ['Flutter', 'Supabase', 'PostgreSQL', 'Charts', 'Auth'],
       features: [
         'Controle de receitas e despesas',
@@ -37,9 +37,9 @@ const Projects = () => {
         'Categorização automática',
         'Sincronização em nuvem'
       ],
-      status: 'Em desenvolvimento',
+      status: 'Concluído',
       github: 'https://github.com/lucasampaio10/app-financeiro',
-      demo: null,
+      demo: 'https://github.com/lucasampaio10/app-financeiro/releases/tag/portifolio',
       color: 'from-blue-500 to-cyan-600'
     },
     {
