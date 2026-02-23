@@ -47,8 +47,8 @@ const Hero = () => {
               </a>
               
               <a
-                href="/cv-lucas-dev.pdf"
-                target="_blank"
+                href="/Currículo Lucas Sampaio.pdf"
+                download="Currículo Lucas Sampaio.pdf"
                 className="inline-flex items-center px-8 py-4 border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold rounded-lg transition-colors duration-200"
               >
                 Download CV
