@@ -9,25 +9,25 @@ const Hero = () => {
          <div className="animate-fade-in">
             <div className="mb-4">
               <span className="px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                👋 Olá! Eu sou desenvolvedor
+                👋 Olá! Eu sou Dev QA
               </span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Lucas
-              <span className="block text-primary-600">Desenvolvedor</span>
+              <span className="block text-primary-600">Dev QA</span>
               <span className="block text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-600">
-                Full Stack
+                Qualidade & Desenvolvimento
               </span>
             </h1>
 
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Especializado em <strong>Flutter</strong>, <strong>C#/.NET</strong>, <strong>React Native</strong> e <strong>QA</strong>.
-              Transformo ideias em soluções mobile e web robustas, com foco em clean architecture e melhores práticas.
+              Especializado em <strong>QA Automatizado</strong>, <strong>Cypress</strong>, <strong>Selenium</strong> e <strong>desenvolvimento web</strong>.
+              Garanto qualidade de ponta a ponta com visão de dev, entregando software confiável e bem testado.
             </p>
 
             <div className="flex flex-wrap gap-2 mb-8">
-              {['Flutter', 'C#/.NET', 'React Native', 'Supabase', 'Azure', 'Docker', 'QA'].map((tech) => (
+              {['Cypress', 'Selenium', 'Appium', 'Next.js', 'Flutter', 'C#/.NET', 'Python', 'Azure'].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 bg-gray-100 text-gray-700 rounded-md text-sm font-medium"

@@ -2,13 +2,32 @@ import { Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code } from 'luc
 
 const Experience = () => {
   const experiences = [
-    {
+      {
       id: 1,
+      title: 'Analista de QA Pleno',
+      company: 'Impar Tecnologia',
+      location: 'Fortaleza, Ceará - Presencial',
+      period: 'Janeiro 2026 - Presente',
+      duration: '1+ mês',
+      type: 'Full-time',
+      description: 'Garantia de qualidade em sistemas críticos de saúde pública, atuando com automação de testes e processos de QA em aplicações web e mobile.',
+      achievements: [
+        'Automação de testes com Cypress e Selenium',
+        'Testes de API REST com validação de contratos',
+        'QA em aplicativo mobile com Appium',
+        'Criação de scripts e planos de teste para fluxos críticos de SAMU e regulação médica',
+        'Integração entre visão de dev e QA no mesmo ciclo de entrega'
+      ],
+      technologies: ['Cypress', 'Selenium', 'Appium', 'Postman', 'JavaScript', 'Git'],
+      color: 'from-violet-500 to-purple-600'
+    },
+    {
+      id: 2,
       title: 'Desenvolvedor de Software Nível 2',
       company: 'Impar Tecnologia',
       location: 'Fortaleza, Ceará - Presencial',
-      period: 'Setembro 2025 - Presente',
-      duration: '1+ mês',
+      period: 'Setembro 2025 - Janeiro 2026',
+      duration: '5+ meses',
       type: 'Full-time',
       description: 'Desenvolvimento de aplicações web modernas e responsivas com foco em performance e experiência do usuário.',
       achievements: [
@@ -21,13 +40,32 @@ const Experience = () => {
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'ESLint', 'PostCSS', 'Git'],
       color: 'from-blue-500 to-indigo-600'
     },
+        {
+      id: 3,
+      title: 'Desenvolvedor Full Stack',
+      company: 'Companhia de trade - Freelance',
+      location: 'Fortaleza, Ceará - Remoto',
+      period: 'Outubro 2025 - Novembro 2025',
+      duration: '2+ meses',
+      type: 'Freelance',
+      description: 'Desenvolvimento de uma plataforma completa de backtesting para estratégias de trading, com foco em performance, modularidade e visualização de dados financeiros.',
+      achievements: [
+        'Arquitetura modular com motor de backtesting em Python (engine, metrics, visualization, execution)',
+        'Cálculo de métricas avançadas: Sharpe Ratio, Max Drawdown, Win Rate, Profit Factor, Expectancy e análises por dia/mês',
+        'Frontend full stack com Next.js, TypeScript e Supabase para persistência e autenticação',
+        'Lógica de execução de trades com position sizing e gerenciamento de risco configurável',
+        'Configuração de deploy com scripts para Linux e Windows'
+      ],
+      technologies: ['Next.js', 'TypeScript', 'Python', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Git'],
+      color: 'from-rose-500 to-pink-600'
+    },
     {
-      id: 2,
+      id: 4,
       title: 'Desenvolvedor',
       company: 'Maple Agency - Freelance',
       location: 'Fortaleza, Ceará - Remoto',
-      period: 'Julho 2025 - Presente',
-      duration: '3+ meses',
+      period: 'Julho 2025 - Novembro 2025',
+      duration: '5+ meses',
       type: 'Freelance',
       description: 'Desenvolvimento de aplicações em Flutter com foco em qualidade e performance.',
       achievements: [
@@ -41,7 +79,7 @@ const Experience = () => {
       color: 'from-green-500 to-emerald-600'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Desenvolvedor',
       company: 'IzzyWay',
       location: 'Fortaleza, Ceará - Presencial',
@@ -62,9 +100,9 @@ const Experience = () => {
       color: 'from-purple-500 to-pink-600'
     },
     {
-      id: 4,
+      id: 6,
       title: 'Analista de QA',
-      company: 'Empresa de Tecnologia',
+      company: 'IzzyWay',
       location: 'Fortaleza, Ceará',
       period: 'Julho 2024 - Março 2025',
       duration: '9 meses',
@@ -83,9 +121,9 @@ const Experience = () => {
       color: 'from-orange-500 to-red-600'
     },
     {
-      id: 5,
+      id: 7,
       title: 'Estagiário de QA',
-      company: 'Empresa de Tecnologia',
+      company: 'IzzyWay',
       location: 'Fortaleza, Ceará',
       period: 'Março 2024 - Julho 2024',
       duration: '5 meses',
@@ -104,7 +142,7 @@ const Experience = () => {
       color: 'from-teal-500 to-cyan-600'
     },
     {
-      id: 6,
+      id: 8,
       title: 'Estagiário de Dados e Automação',
       company: 'ChatZDesk Brasil',
       location: 'São Paulo - Remoto',
