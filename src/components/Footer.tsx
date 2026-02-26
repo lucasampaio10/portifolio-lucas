@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Heart } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-slate-950 text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Left side */}
@@ -11,7 +11,7 @@ const Footer = () => {
               Lucas<span className="text-primary-400">Dev</span>
             </div>
             <p className="text-gray-400 text-sm max-w-md">
-              Desenvolvedor Full Stack especializado em Flutter, C#/.NET e React Native.
+              Desenvolvedor Frontend & Mobile especializado em React, Next.js e Flutter.
               Transformando ideias em soluções tecnológicas.
             </p>
           </div>

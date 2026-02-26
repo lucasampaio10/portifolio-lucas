@@ -1,9 +1,9 @@
-import { 
-  Smartphone, 
-  Server, 
-  Cloud, 
-  Database, 
-  Code, 
+import {
+  Smartphone,
+  Server,
+  Cloud,
+  Database,
+  Code,
   TestTube,
   GitBranch,
   Container,
@@ -49,15 +49,15 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Ferramentas & QA',
+      title: 'Ferramentas & Automação',
       icon: <TestTube className="w-8 h-8" />,
       color: 'from-purple-500 to-pink-600',
       skills: [
         { name: 'Git/GitHub', level: 90 },
-        { name: 'Testes Automatizados', level: 80 },
-        { name: 'RabbitMQ', level: 70 },
-        { name: 'N8n', level: 75 },
         { name: 'Prisma', level: 85 },
+        { name: 'N8n', level: 75 },
+        { name: 'RabbitMQ', level: 70 },
+        { name: 'Testes Automatizados', level: 80 },
       ]
     }
   ]
@@ -72,14 +72,14 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Habilidades & Tecnologias
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Experiência sólida em desenvolvimento full stack, com foco em mobile e web.
             Sempre buscando as melhores práticas e tecnologias mais atuais.
           </p>
@@ -87,17 +87,17 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <div
               key={category.title}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Category Header */}
               <div className="flex items-center mb-6">
                 <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} text-white mr-4`}>
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
               </div>
 
               {/* Skills List */}
@@ -105,10 +105,10 @@ const Skills = () => {
                 {category.skills.map((skill) => (
                   <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700">{skill.name}</span>
-                      <span className="text-sm text-gray-500">{skill.level}%</span>
+                      <span className="font-medium text-slate-300">{skill.name}</span>
+                      <span className="text-sm text-slate-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="w-full bg-slate-700 rounded-full h-2">
                       <div
                         className={`bg-gradient-to-r ${category.color} h-2 rounded-full transition-all duration-1000 ease-out`}
                         style={{ width: `${skill.level}%` }}
@@ -123,15 +123,15 @@ const Skills = () => {
 
         {/* Tools Section */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Ferramentas do Dia a Dia</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Ferramentas do Dia a Dia</h3>
           <div className="flex flex-wrap justify-center gap-6">
             {tools.map((tool) => (
               <div
                 key={tool.name}
-                className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
+                className="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
               >
-                <div className="text-primary-600 mb-2">{tool.icon}</div>
-                <span className="text-sm font-medium text-gray-700">{tool.name}</span>
+                <div className="text-primary-400 mb-2">{tool.icon}</div>
+                <span className="text-sm font-medium text-slate-300">{tool.name}</span>
               </div>
             ))}
           </div>
@@ -141,9 +141,8 @@ const Skills = () => {
         <div className="mt-16 bg-primary-600 text-white rounded-xl p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">💡 Destaque Profissional</h3>
           <p className="text-primary-100 text-lg max-w-3xl mx-auto">
-            Atualmente trabalhando como <strong>Desenvolvedor Júnior</strong> em startup há 5 meses,
-            com aprendizado acelerado em <strong>TSX</strong>, <strong>Git</strong>, <strong>Prisma</strong> 
-            e <strong>React</strong>. Várias entregas em produção e evolução constante!
+            Experiência em projetos reais com <strong>React</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong> e <strong>Flutter</strong>,
+            com entregas em produção e visão de qualidade aplicada ao desenvolvimento. QA como diferencial — não como limitação.
           </p>
         </div>
       </div>

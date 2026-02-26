@@ -2,7 +2,7 @@ import { Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code } from 'luc
 
 const Experience = () => {
   const experiences = [
-      {
+    {
       id: 1,
       title: 'Analista de QA Pleno',
       company: 'Impar Tecnologia',
@@ -40,7 +40,7 @@ const Experience = () => {
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'ESLint', 'PostCSS', 'Git'],
       color: 'from-blue-500 to-indigo-600'
     },
-        {
+    {
       id: 3,
       title: 'Desenvolvedor Full Stack',
       company: 'Companhia de trade - Freelance',
@@ -173,23 +173,23 @@ const Experience = () => {
 
   const education = [
     {
-      title: 'Tecnologia da Informação',
-      institution: 'Instituição de Ensino Superior',
-      period: '2020 - 2023',
+      title: 'Sistemas De Informação (Bacharelado)',
+      institution: 'Estácio',
+      period: '2020 - 2026',
       description: 'Formação sólida em programação, banco de dados, redes e desenvolvimento de software, com foco em tecnologias modernas e melhores práticas de desenvolvimento.'
     }
   ]
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
+    <section id="experience" className="py-20 bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Experiência Profissional
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Minha jornada como desenvolvedor, com foco em crescimento contínuo 
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+            Minha jornada como desenvolvedor, com foco em crescimento contínuo
             e entrega de soluções de qualidade.
           </p>
         </div>
@@ -197,7 +197,7 @@ const Experience = () => {
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-primary-200"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-slate-600"></div>
 
           {experiences.map((exp, index) => (
             <div
@@ -207,11 +207,11 @@ const Experience = () => {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-lg z-10 mt-6"></div>
+              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-slate-900 shadow-lg z-10 mt-6"></div>
 
               {/* Content */}
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-16 md:ml-0`}>
-                <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   {/* Header */}
                   <div className="mb-6">
                     <div className="flex items-center justify-between mb-4">
@@ -219,18 +219,18 @@ const Experience = () => {
                         <Briefcase className="w-6 h-6" />
                       </div>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        exp.type === 'Full-time' 
-                          ? 'bg-green-100 text-green-700' 
-                          : 'bg-blue-100 text-blue-700'
+                        exp.type === 'Full-time'
+                          ? 'bg-green-900/50 text-green-400'
+                          : 'bg-blue-900/50 text-blue-400'
                       }`}>
                         {exp.type}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{exp.title}</h3>
-                    <p className="text-primary-600 font-semibold mb-4">{exp.company}</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
+                    <p className="text-primary-400 font-semibold mb-4">{exp.company}</p>
 
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div className="flex flex-wrap gap-4 text-sm text-slate-400">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {exp.period} • {exp.duration}
@@ -243,14 +243,14 @@ const Experience = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 mb-6">{exp.description}</p>
+                  <p className="text-slate-400 mb-6">{exp.description}</p>
 
                   {/* Achievements */}
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Principais Conquistas:</h4>
+                    <h4 className="font-semibold text-white mb-3">Principais Conquistas:</h4>
                     <ul className="space-y-2">
                       {exp.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start text-gray-600">
+                        <li key={idx} className="flex items-start text-slate-400">
                           <span className="w-2 h-2 bg-primary-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
                           {achievement}
                         </li>
@@ -260,12 +260,12 @@ const Experience = () => {
 
                   {/* Technologies */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Tecnologias:</h4>
+                    <h4 className="font-semibold text-white mb-3">Tecnologias:</h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-primary-100 text-primary-700 rounded-md text-sm font-medium"
+                          className="px-3 py-1 bg-slate-700 text-primary-400 rounded-md text-sm font-medium"
                         >
                           {tech}
                         </span>
@@ -281,38 +281,38 @@ const Experience = () => {
         {/* Skills & Soft Skills */}
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Professional Skills */}
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Competências Profissionais</h3>
+          <div className="bg-slate-800 rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-white mb-6">Competências Profissionais</h3>
             <div className="grid grid-cols-2 gap-4">
               {skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="flex items-center p-4 bg-primary-50 rounded-lg"
+                  className="flex items-center p-4 bg-slate-700 rounded-lg"
                 >
-                  <div className="text-primary-600 mr-3">{skill.icon}</div>
-                  <span className="font-medium text-gray-700">{skill.name}</span>
+                  <div className="text-primary-400 mr-3">{skill.icon}</div>
+                  <span className="font-medium text-slate-300">{skill.name}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Education */}
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Educação</h3>
+          <div className="bg-slate-800 rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-white mb-6">Educação</h3>
             {education.map((edu, index) => (
               <div key={index} className="border-l-4 border-primary-500 pl-6 pb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{edu.title}</h4>
-                <p className="text-primary-600 font-medium mb-2">{edu.institution}</p>
-                <p className="text-gray-600 text-sm mb-3">{edu.period}</p>
-                <p className="text-gray-600">{edu.description}</p>
+                <h4 className="text-lg font-semibold text-white mb-2">{edu.title}</h4>
+                <p className="text-primary-400 font-medium mb-2">{edu.institution}</p>
+                <p className="text-slate-400 text-sm mb-3">{edu.period}</p>
+                <p className="text-slate-400">{edu.description}</p>
               </div>
             ))}
 
             {/* Certifications placeholder */}
-            <div className="mt-8 p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-lg">
-              <h4 className="font-semibold text-primary-900 mb-2">🏆 Próximos Passos</h4>
-              <p className="text-primary-700 text-sm">
-                Sempre em busca de novas certificações e conhecimentos para me manter atualizado 
+            <div className="mt-8 p-4 bg-slate-700 rounded-lg">
+              <h4 className="font-semibold text-white mb-2">🏆 Próximos Passos</h4>
+              <p className="text-slate-400 text-sm">
+                Sempre em busca de novas certificações e conhecimentos para me manter atualizado
                 com as melhores práticas do mercado.
               </p>
             </div>

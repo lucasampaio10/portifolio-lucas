@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Lucas - Desenvolvedor Full Stack',
-  description: 'Portfólio profissional de Lucas - Desenvolvedor especializado em Flutter, C#/.NET, React Native, QA e DevOps',
-  keywords: 'Flutter, C#, .NET, React Native, QA, Mobile, Backend, Azure, Docker, Supabase',
-  authors: [{ name: 'Lucas' }],
+  title: 'Lucas Sampaio - Desenvolvedor Frontend & Mobile',
+  description: 'Portfólio profissional de Lucas Sampaio - Desenvolvedor especializado em React, Next.js, TypeScript e Flutter',
+  keywords: 'React, Next.js, TypeScript, Flutter, React Native, Frontend, Mobile, JavaScript',
+  authors: [{ name: 'Lucas Sampaio' }],
   openGraph: {
-    title: 'Lucas - Desenvolvedor Full Stack',
-    description: 'Portfólio profissional - Flutter, C#/.NET, React Native, QA e DevOps',
+    title: 'Lucas Sampaio - Desenvolvedor Frontend & Mobile',
+    description: 'Portfólio profissional - React, Next.js, TypeScript e Flutter',
     type: 'website',
   },
 }

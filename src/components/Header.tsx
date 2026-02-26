@@ -15,11 +15,11 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-200 z-50">
+    <header className="fixed top-0 w-full bg-slate-900/90 backdrop-blur-sm border-b border-slate-700 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo/Name */}
-          <div className="text-2xl font-bold text-primary-700">
+          <div className="text-2xl font-bold text-primary-400">
             Lucas<span className="text-primary-500">Dev</span>
           </div>
 
@@ -29,7 +29,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+                className="text-slate-300 hover:text-primary-400 transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -43,7 +43,7 @@ const Header = () => {
               href="https://github.com/lucasampaio10"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
             >
               <Github size={20} />
             </a>
@@ -51,13 +51,13 @@ const Header = () => {
               href="https://www.linkedin.com/in/lucassampaio-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:lukasrocha0402@gmail.com"
-              className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
             >
               <Mail size={20} />
             </a>
@@ -65,7 +65,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-slate-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -74,25 +74,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-slate-700">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+                  className="text-slate-300 hover:text-primary-400 transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-slate-700">
               <a
                 href="https://github.com/lucasampaio10"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <Github size={20} />
               </a>
@@ -100,13 +100,13 @@ const Header = () => {
                 href="https://www.linkedin.com/in/lucassampaio-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="mailto:lukasrocha0402@gmail.com"
-                className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
               >
                 <Mail size={20} />
               </a>

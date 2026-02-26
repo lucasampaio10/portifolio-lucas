@@ -9,11 +9,11 @@ const Projects = () => {
       description: 'Aplicativo Flutter para controle de investimentos com clean architecture, gráficos interativos e análise de portfólio em tempo real.',
       longDescription: 'Desenvolvido com foco em performance e escalabilidade, utilizando princípios de clean architecture. Inclui dashboard personalizado, histórico de transações e notificações push.',
       icon: <TrendingUp className="w-6 h-6" />,
-      video: '/dashinvest-demo.mp4', // Placeholder
+      video: '/dashinvest-demo.mp4',
       technologies: ['Flutter', 'Dart', 'Firebase', 'Clean Architecture', 'BLoC Pattern'],
       features: [
         'Dashboard interativo com gráficos',
-        'Controle de portfólio em tempo real', 
+        'Controle de portfólio em tempo real',
         'Histórico detalhado de transações',
         'Notificações push personalizadas'
       ],
@@ -29,7 +29,7 @@ const Projects = () => {
       description: 'Aplicativo completo para controle de receitas e despesas com gráficos dinâmicos, categorização inteligente e autenticação segura.',
       longDescription: 'Sistema robusto de controle financeiro pessoal com integração Firebase/Supabase, análise de gastos por categoria e relatórios mensais detalhados.',
       icon: <DollarSign className="w-6 h-6" />,
-      video: '/app-financeiro.mp4', // Placeholder  
+      video: '/app-financeiro.mp4',
       technologies: ['Flutter', 'Supabase', 'PostgreSQL', 'Charts', 'Auth'],
       features: [
         'Controle de receitas e despesas',
@@ -49,7 +49,7 @@ const Projects = () => {
       description: 'App de questionários de saúde com cálculo de expectativa de vida, backend Supabase com triggers PL/pgSQL e dashboard administrativo.',
       longDescription: 'Plataforma completa de avaliação de saúde com algoritmos avançados de cálculo, backend robusto e interface administrativa para análise de dados.',
       icon: <Heart className="w-6 h-6" />,
-      image: '/projects/lifeplus.jpg', // Placeholder
+      image: '/projects/lifeplus.jpg',
       technologies: ['Flutter', 'Supabase', 'PL/pgSQL', 'Triggers', 'Dashboard'],
       features: [
         'Questionários dinâmicos de saúde',
@@ -69,7 +69,7 @@ const Projects = () => {
       description: 'Aplicativo de e-commerce completo com carrinho de compras, sistema de pagamentos, reviews de produtos e chat com vendedores.',
       longDescription: 'Plataforma de e-commerce mobile desenvolvida com React Native, oferecendo uma experiência de compra fluida e intuitiva. Inclui sistema de busca avançada, wishlist, notificações push e integração com APIs de pagamento.',
       icon: <TrendingUp className="w-6 h-6" />,
-      image: '/projects/shopeasy.jpg', // Placeholder
+      image: '/projects/shopeasy.jpg',
       technologies: ['React Native', 'Node.js', 'PostgreSQL', 'Stripe API', 'Socket.io', 'Redux'],
       features: [
         'Carrinho de compras com persistência local',
@@ -91,7 +91,7 @@ const Projects = () => {
       description: 'Dashboard interativo para visualização de dados com gráficos dinâmicos, filtros avançados e exportação de relatórios.',
       longDescription: 'Plataforma web para análise e visualização de dados empresariais, desenvolvida com Next.js e TypeScript. Oferece insights em tempo real através de gráficos interativos e relatórios personalizáveis.',
       icon: <TrendingUp className="w-6 h-6" />,
-      image: '/projects/dataviz.jpg', // Placeholder
+      image: '/projects/dataviz.jpg',
       technologies: ['Next.js', 'TypeScript', 'Chart.js', 'Supabase', 'Tailwind CSS', 'Recharts'],
       features: [
         'Gráficos interativos e responsivos',
@@ -109,15 +109,15 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Projetos em Destaque
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Uma seleção dos projetos que desenvolvi, mostrando diferentes tecnologias 
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+            Uma seleção dos projetos que desenvolvi, mostrando diferentes tecnologias
             e soluções para problemas reais.
           </p>
         </div>
@@ -134,7 +134,6 @@ const Projects = () => {
               {/* Project Image */}
               <div className="w-full lg:w-1/2">
                 <div className="relative group">
-                  {/* Project video or placeholder */}
                   {project.video ? (
                     <video
                       className="aspect-video w-full rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 object-cover"
@@ -146,32 +145,32 @@ const Projects = () => {
                       <source src={project.video} type="video/mp4" />
                     </video>
                   ) : (
-                    <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center">
+                    <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center">
                       <div className={`p-8 rounded-full bg-gradient-to-r ${project.color} text-white`}>
                         <Smartphone className="w-16 h-16" />
                       </div>
                     </div>
                   )}
                   {/* Overlay with demo/github links */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <div className="flex space-x-4">
                       {project.demo && (
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+                          className="p-3 bg-slate-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
                         >
-                          <Play className="w-5 h-5 text-primary-600" />
+                          <Play className="w-5 h-5 text-primary-400" />
                         </a>
                       )}
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+                        className="p-3 bg-slate-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
                       >
-                        <Github className="w-5 h-5 text-gray-700" />
+                        <Github className="w-5 h-5 text-slate-300" />
                       </a>
                     </div>
                   </div>
@@ -183,9 +182,9 @@ const Projects = () => {
                 {/* Status Badge */}
                 <div className="flex items-center space-x-3">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    project.status === 'Concluído' 
-                      ? 'bg-green-100 text-green-700' 
-                      : 'bg-yellow-100 text-yellow-700'
+                    project.status === 'Concluído'
+                      ? 'bg-green-900/50 text-green-400'
+                      : 'bg-yellow-900/50 text-yellow-400'
                   }`}>
                     {project.status}
                   </span>
@@ -196,25 +195,25 @@ const Projects = () => {
 
                 {/* Title */}
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-primary-600 font-semibold text-lg">
+                  <p className="text-primary-400 font-semibold text-lg">
                     {project.subtitle}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <p className="text-slate-400 text-lg leading-relaxed">
                   {project.longDescription}
                 </p>
 
                 {/* Features */}
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Principais Features:</h4>
+                  <h4 className="font-semibold text-white mb-3">Principais Features:</h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {project.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-gray-600">
+                      <li key={idx} className="flex items-center text-slate-400">
                         <span className="w-2 h-2 bg-primary-500 rounded-full mr-3 flex-shrink-0"></span>
                         {feature}
                       </li>
@@ -224,12 +223,12 @@ const Projects = () => {
 
                 {/* Technologies */}
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Tecnologias:</h4>
+                  <h4 className="font-semibold text-white mb-3">Tecnologias:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-primary-100 text-primary-700 rounded-md text-sm font-medium"
+                        className="px-3 py-1 bg-slate-700 text-primary-400 rounded-md text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -254,7 +253,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 hover:border-primary-600 hover:text-primary-600 font-semibold rounded-lg transition-colors duration-200"
+                    className="inline-flex items-center px-6 py-3 border-2 border-slate-600 text-slate-300 hover:border-primary-500 hover:text-primary-400 font-semibold rounded-lg transition-colors duration-200"
                   >
                     Código Fonte
                     <Github className="ml-2" size={18} />
@@ -266,12 +265,12 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center bg-gray-50 rounded-xl p-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-20 text-center bg-slate-900 rounded-xl p-12">
+          <h3 className="text-2xl font-bold text-white mb-4">
             Gostou dos projetos?
           </h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Estes são apenas alguns exemplos do meu trabalho. Tenho outros projetos em desenvolvimento 
+          <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
+            Estes são apenas alguns exemplos do meu trabalho. Tenho outros projetos em desenvolvimento
             e sempre aberto a novos desafios!
           </p>
           <a
