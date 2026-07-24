@@ -8,9 +8,9 @@ import {
   Github,
   Linkedin,
   Send,
-  MessageCircle,
   Coffee,
-  Calendar
+  Calendar,
+  Sparkles
 } from 'lucide-react'
 
 const Contact = () => {
@@ -27,38 +27,41 @@ const Contact = () => {
       label: 'Email',
       value: 'lukasrocha0402@gmail.com',
       link: 'mailto:lukasrocha0402@gmail.com',
-      color: 'from-red-500 to-pink-600'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: 'WhatsApp',
       value: '+55 (85) 981482193',
       link: 'https://wa.me/5585981482193',
-      color: 'from-green-500 to-emerald-600'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       label: 'Localização',
       value: 'Brasil - Remoto',
       link: null,
-      color: 'from-blue-500 to-cyan-600'
     }
   ]
 
   const socialLinks = [
     {
       name: 'GitHub',
-      icon: <Github className="w-6 h-6" />,
+      icon: <Github className="w-5 h-5" />,
       url: 'https://github.com/lucasampaio10',
-      color: 'hover:text-white',
-      description: 'Veja meus projetos'
     },
     {
       name: 'LinkedIn',
-      icon: <Linkedin className="w-6 h-6" />,
+      icon: <Linkedin className="w-5 h-5" />,
       url: 'https://www.linkedin.com/in/lucassampaio-dev',
-      color: 'hover:text-blue-400',
-      description: 'Conecte-se comigo'
+    },
+    {
+      name: 'Email',
+      icon: <Mail className="w-5 h-5" />,
+      url: 'mailto:lukasrocha0402@gmail.com',
+    },
+    {
+      name: 'Agendar',
+      icon: <Calendar className="w-5 h-5" />,
+      url: 'https://calendly.com/lucasrocha0402',
     }
   ]
 
@@ -92,109 +95,99 @@ ${formData.message}
   }
 
   return (
-    <section id="contact" className="py-20 bg-slate-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Vamos Trabalhar Juntos?
+    <section id="contact" className="py-xl bg-surface-container-lowest">
+      <div className="max-w-container-max mx-auto px-md sm:px-lg">
+        <div className="max-w-3xl mb-xl">
+          <span className="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-md block">Aberto para colaborações</span>
+          <h2 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-lg">
+            Tem um projeto em mente? <span className="text-primary">Vamos conversar</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            Estou sempre aberto a novas oportunidades e projetos interessantes.
-            Entre em contato e vamos conversar sobre como posso ajudar!
+          <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Pode chamar por email, WhatsApp ou pelo formulário abaixo. Se for só pra tirar uma dúvida
+            ou trocar ideia sobre alguma tecnologia, também responde.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-1 space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
-
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center group">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${info.color} text-white mr-4 group-hover:scale-110 transition-transform duration-200`}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+          {/* Left: Info & Socials */}
+          <div className="lg:col-span-5 flex flex-col gap-lg">
+            <div className="glass-card p-lg rounded-xl flex flex-col gap-md">
+              {contactInfo.map((info, index) => (
+                <div key={info.label}>
+                  <div className="flex items-center gap-md">
+                    <div className="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
                       {info.icon}
                     </div>
                     <div>
-                      <p className="text-sm text-slate-400 font-medium">{info.label}</p>
+                      <p className="text-sm text-on-surface-variant font-medium">{info.label}</p>
                       {info.link ? (
                         <a
                           href={info.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white hover:text-primary-400 transition-colors duration-200"
+                          className="text-on-surface hover:text-primary transition-colors duration-200"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-white">{info.value}</p>
+                        <p className="text-on-surface">{info.value}</p>
                       )}
                     </div>
                   </div>
-                ))}
+                  {index < contactInfo.length - 1 && <div className="h-px bg-outline-variant/30 my-md"></div>}
+                </div>
+              ))}
+            </div>
+
+            {/* Status Card */}
+            <div className="bg-primary-container/20 border border-primary/20 rounded-xl p-lg flex flex-col items-center text-center gap-md">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                <Sparkles className="text-primary" size={24} />
+              </div>
+              <div>
+                <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Status Atual</p>
+                <h4 className="font-headline-md text-headline-md text-on-surface">Aceitando novos projetos</h4>
+              </div>
+            </div>
+
+            <div className="glass-card p-lg rounded-xl flex items-center gap-md">
+              <div className="w-12 h-12 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary shrink-0">
+                <Coffee className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-headline-md text-headline-md text-on-surface">Prefere um bate-papo?</h4>
+                <p className="text-on-surface-variant text-sm">Chama no WhatsApp ou marca uma call rápida, sem compromisso.</p>
               </div>
             </div>
 
             {/* Social Links */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4">Redes Sociais</h4>
-              <div className="space-y-3">
+            <div className="flex flex-col gap-md">
+              <h5 className="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Presença Social</h5>
+              <div className="grid grid-cols-2 gap-md">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-3 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors duration-200 group"
+                    className="flex items-center gap-sm p-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest transition-colors group"
                   >
-                    <div className={`mr-4 text-slate-400 ${social.color} transition-colors duration-200`}>
-                      {social.icon}
-                    </div>
-                    <div>
-                      <p className="font-medium text-white">{social.name}</p>
-                      <p className="text-sm text-slate-400">{social.description}</p>
-                    </div>
+                    <span className="text-primary group-hover:scale-110 transition-transform">{social.icon}</span>
+                    <span className="font-label-md text-label-md text-on-surface">{social.name}</span>
                   </a>
                 ))}
               </div>
             </div>
-
-            {/* Quick Actions */}
-            <div className="bg-slate-700 rounded-xl p-6">
-              <h4 className="text-lg font-bold text-white mb-4 flex items-center">
-                <Coffee className="w-5 h-5 mr-2" />
-                Que tal um café?
-              </h4>
-              <p className="text-slate-400 text-sm mb-4">
-                Adoro discutir projetos interessantes e trocar ideias sobre tecnologia!
-              </p>
-              <a
-                href="https://calendly.com/lucasrocha0402"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium text-sm"
-              >
-                <Calendar className="w-4 h-4 mr-1" />
-                Agendar conversa
-              </a>
-            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="bg-slate-700 rounded-xl p-8">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-primary-600 text-white rounded-lg mr-4">
-                  <MessageCircle className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Envie uma Mensagem</h3>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
-                      Nome *
+          {/* Right: Contact Form */}
+          <div className="lg:col-span-7">
+            <div className="glass-card p-xl rounded-xl">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                  <div className="flex flex-col gap-sm">
+                    <label htmlFor="name" className="font-label-md text-label-md text-on-surface">
+                      Nome Completo
                     </label>
                     <input
                       type="text"
@@ -203,14 +196,14 @@ ${formData.message}
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-600 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 placeholder-slate-500"
+                      className="bg-surface-container-low border border-outline-variant p-md rounded-lg text-body-md text-on-surface placeholder-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
                       placeholder="Lucas Sampaio"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-                      Email *
+                  <div className="flex flex-col gap-sm">
+                    <label htmlFor="email" className="font-label-md text-label-md text-on-surface">
+                      Endereço de Email
                     </label>
                     <input
                       type="email"
@@ -219,14 +212,14 @@ ${formData.message}
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-600 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 placeholder-slate-500"
-                      placeholder="lukasrocha0402@gmail.com"
+                      className="bg-surface-container-low border border-outline-variant p-md rounded-lg text-body-md text-on-surface placeholder-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
+                      placeholder="seuemail@exemplo.com"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="subject" className="font-label-md text-label-md text-on-surface">
                     Assunto
                   </label>
                   <input
@@ -235,14 +228,14 @@ ${formData.message}
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 placeholder-slate-500"
+                    className="bg-surface-container-low border border-outline-variant p-md rounded-lg text-body-md text-on-surface placeholder-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all"
                     placeholder="Sobre o que você gostaria de conversar?"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
-                    Mensagem *
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="message" className="font-label-md text-label-md text-on-surface">
+                    Conte-me sobre sua visão
                   </label>
                   <textarea
                     id="message"
@@ -251,47 +244,25 @@ ${formData.message}
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 resize-none placeholder-slate-500"
-                    placeholder="Conte-me sobre seu projeto ou oportunidade..."
+                    className="bg-surface-container-low border border-outline-variant p-md rounded-lg text-body-md text-on-surface placeholder-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all resize-none"
+                    placeholder="Compartilhe alguns detalhes sobre o que você está desenvolvendo..."
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full md:w-auto inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-                >
-                  Enviar Mensagem
-                  <Send className="ml-2" size={20} />
-                </button>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-md pt-md">
+                  <p className="text-label-sm text-on-surface-variant max-w-[240px] text-center sm:text-left">
+                    Costumo responder em até 24-48h úteis.
+                  </p>
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md font-bold hover:opacity-90 transition-all"
+                  >
+                    Enviar Mensagem
+                    <Send size={20} />
+                  </button>
+                </div>
               </form>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-20 text-center bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl p-12">
-          <h3 className="text-2xl font-bold mb-4">Pronto para começar seu projeto?</h3>
-          <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
-            Estou disponível para projetos freelance, oportunidades full-time ou
-            qualquer colaboração interessante que envolva tecnologia!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:lukasrocha0402@gmail.com"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary-600 hover:bg-slate-100 font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              <Mail className="mr-2" size={20} />
-              Enviar Email
-            </a>
-            <a
-              href="https://wa.me/5585981482193"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold rounded-lg transition-colors duration-200"
-            >
-              <MessageCircle className="mr-2" size={20} />
-              WhatsApp
-            </a>
           </div>
         </div>
       </div>

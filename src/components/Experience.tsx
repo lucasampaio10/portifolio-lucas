@@ -1,9 +1,42 @@
-import { Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code } from 'lucide-react'
+import { Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code, GraduationCap } from 'lucide-react'
 
 const Experience = () => {
   const experiences = [
     {
       id: 1,
+      title: 'Engenheiro de Software',
+      company: 'Unifor Hub',
+      location: 'Fortaleza, Ceará',
+      period: 'Julho 2026 - Presente',
+      duration: '1+ mês',
+      type: 'Full-time',
+      description: 'Desenvolvimento da plataforma DIANA (Diagnóstico Integrado de Análise Normativa de Absenteísmo), voltada à conformidade com a NR-1 e à gestão de saúde ocupacional.',
+      achievements: [
+        'Atuação fullstack: React (web) e React Native (mobile) no frontend, .NET 8 com Clean Architecture e CQRS no backend, PostgreSQL como banco de dados',
+        'Modelagem de entidades com Entity Framework Core 8, incluindo Fluent API e interceptors de auditoria',
+        'Design de contratos de API REST (estrutura de endpoints, envelope de resposta JSON, padronização de erros)',
+        'Desenvolvimento de dashboards e visualização de dados de absenteísmo, com definição de KPIs e componentes gráficos'
+      ],
+      technologies: ['React', 'React Native', '.NET 8', 'Clean Architecture', 'CQRS', 'Entity Framework Core', 'PostgreSQL'],
+    },
+    {
+      id: 2,
+      title: 'Desenvolvedor de Sistemas',
+      company: 'MEDGRUPO',
+      location: 'Fortaleza, Ceará',
+      period: 'Março 2026 - Junho 2026',
+      duration: '4 meses',
+      type: 'Full-time',
+      description: 'Desenvolvimento backend em C#/.NET para plataforma de preparação para provas de residência médica.',
+      achievements: [
+        'Implementação de consumers RabbitMQ para processamento assíncrono de mensagens',
+        'Aplicação de padrões Entity Framework Core e boas práticas de arquitetura em C#/.NET',
+        'Participação ativa em revisões de código (PR reviews) e manutenção dos padrões de qualidade da equipe'
+      ],
+      technologies: ['C#', '.NET', 'RabbitMQ', 'Entity Framework Core'],
+    },
+    {
+      id: 3,
       title: 'Analista de QA Pleno',
       company: 'Impar Tecnologia',
       location: 'Fortaleza, Ceará - Presencial',
@@ -19,10 +52,9 @@ const Experience = () => {
         'Integração entre visão de dev e QA no mesmo ciclo de entrega'
       ],
       technologies: ['Cypress', 'Selenium', 'Appium', 'Postman', 'JavaScript', 'Git'],
-      color: 'from-violet-500 to-purple-600'
     },
     {
-      id: 2,
+      id: 4,
       title: 'Desenvolvedor de Software Nível 2',
       company: 'Impar Tecnologia',
       location: 'Fortaleza, Ceará - Presencial',
@@ -38,10 +70,9 @@ const Experience = () => {
         'Otimização de performance e SEO das aplicações'
       ],
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'ESLint', 'PostCSS', 'Git'],
-      color: 'from-blue-500 to-indigo-600'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Desenvolvedor Full Stack',
       company: 'Companhia de trade - Freelance',
       location: 'Fortaleza, Ceará - Remoto',
@@ -57,10 +88,9 @@ const Experience = () => {
         'Configuração de deploy com scripts para Linux e Windows'
       ],
       technologies: ['Next.js', 'TypeScript', 'Python', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Git'],
-      color: 'from-rose-500 to-pink-600'
     },
     {
-      id: 4,
+      id: 6,
       title: 'Desenvolvedor',
       company: 'Maple Agency - Freelance',
       location: 'Fortaleza, Ceará - Remoto',
@@ -76,10 +106,9 @@ const Experience = () => {
         'Colaboração eficiente com equipe remota'
       ],
       technologies: ['Flutter', 'Dart', 'APIs REST', 'Git', 'Clean Architecture'],
-      color: 'from-green-500 to-emerald-600'
     },
     {
-      id: 5,
+      id: 7,
       title: 'Desenvolvedor',
       company: 'IzzyWay',
       location: 'Fortaleza, Ceará - Presencial',
@@ -97,10 +126,9 @@ const Experience = () => {
         'Adepto de metodologias ágeis (Scrum e Kanban)'
       ],
       technologies: ['Flutter', 'C#', 'Xamarin', '.NET Framework', '.NET Core', 'Git', 'SQL', 'APIs REST', 'Azure', 'Scrum', 'Kanban'],
-      color: 'from-purple-500 to-pink-600'
     },
     {
-      id: 6,
+      id: 8,
       title: 'Analista de QA',
       company: 'IzzyWay',
       location: 'Fortaleza, Ceará',
@@ -118,10 +146,9 @@ const Experience = () => {
         'Experiência com Azure e metodologia ágil Scrum'
       ],
       technologies: ['Selenium', 'Appium', 'Robot Framework', 'Python', 'C#', 'HTML', 'CSS', 'JavaScript', 'SQL', 'Azure', 'Scrum'],
-      color: 'from-orange-500 to-red-600'
     },
     {
-      id: 7,
+      id: 9,
       title: 'Estagiário de QA',
       company: 'IzzyWay',
       location: 'Fortaleza, Ceará',
@@ -139,10 +166,9 @@ const Experience = () => {
         'Utilização de Selenium para testes automatizados'
       ],
       technologies: ['C#', 'POO', 'Selenium', 'SQL', 'Documentação', 'Git'],
-      color: 'from-teal-500 to-cyan-600'
     },
     {
-      id: 8,
+      id: 10,
       title: 'Estagiário de Dados e Automação',
       company: 'ChatZDesk Brasil',
       location: 'São Paulo - Remoto',
@@ -160,7 +186,6 @@ const Experience = () => {
         'Destaque em comunicação e trabalho em equipe'
       ],
       technologies: ['Python', 'SQL', 'JavaScript', 'PostgreSQL', 'Docker Swarm', 'Traefik', 'RabbitMQ', 'N8n', 'Supabase', 'Git'],
-      color: 'from-indigo-500 to-purple-600'
     }
   ]
 
@@ -171,151 +196,115 @@ const Experience = () => {
     { name: 'Entrega no Prazo', icon: <Award className="w-5 h-5" /> }
   ]
 
-  const education = [
-    {
-      title: 'Sistemas De Informação (Bacharelado)',
-      institution: 'Estácio',
-      period: '2020 - 2026',
-      description: 'Formação sólida em programação, banco de dados, redes e desenvolvimento de software, com foco em tecnologias modernas e melhores práticas de desenvolvimento.'
-    }
-  ]
+  const education = {
+    title: 'Sistemas De Informação (Bacharelado)',
+    institution: 'Estácio',
+    period: '2020 - 2026',
+    description: 'Formação sólida em programação, banco de dados, redes e desenvolvimento de software, com foco em tecnologias modernas e melhores práticas de desenvolvimento.'
+  }
 
   return (
-    <section id="experience" className="py-20 bg-slate-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-xl bg-surface">
+      <div className="max-w-container-max mx-auto px-md sm:px-lg">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Experiência Profissional
+        <header className="mb-xl">
+          <div className="inline-flex items-center gap-sm px-md py-xs rounded-full bg-secondary-container/30 border border-secondary/20 mb-md">
+            <Briefcase className="text-secondary" size={16} />
+            <span className="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Jornada Profissional</span>
+          </div>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-sm">
+            De estagiário de QA a Engenheiro de Software
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            Minha jornada como desenvolvedor, com foco em crescimento contínuo
-            e entrega de soluções de qualidade.
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+            Passei por testes, automação e desenvolvimento — cada etapa me ensinou
+            algo que uso até hoje no código que escrevo.
           </p>
+        </header>
+
+        {/* Timeline */}
+        <div className="flex items-center gap-md mb-lg">
+          <div className="w-12 h-[2px] bg-primary"></div>
+          <h3 className="font-headline-md text-headline-md text-on-surface">Linha do Tempo</h3>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-slate-600"></div>
+        <div className="relative mb-xl">
+          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary-container to-transparent opacity-20 hidden md:block"></div>
 
-          {experiences.map((exp, index) => (
-            <div
-              key={exp.id}
-              className={`relative flex flex-col md:flex-row mb-12 ${
-                index % 2 === 0 ? 'md:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-slate-900 shadow-lg z-10 mt-6"></div>
+          {experiences.map((exp) => (
+            <div key={exp.id} className="relative flex flex-col md:flex-row gap-lg md:pl-20 mb-lg group">
+              <div className="absolute left-4 top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10 hidden md:block group-hover:scale-150 transition-transform duration-300"></div>
 
-              {/* Content */}
-              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ml-16 md:ml-0`}>
-                <div className="bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  {/* Header */}
-                  <div className="mb-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${exp.color} text-white`}>
-                        <Briefcase className="w-6 h-6" />
-                      </div>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        exp.type === 'Full-time'
-                          ? 'bg-green-900/50 text-green-400'
-                          : 'bg-blue-900/50 text-blue-400'
-                      }`}>
-                        {exp.type}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
-                    <p className="text-primary-400 font-semibold mb-4">{exp.company}</p>
-
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-400">
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {exp.period} • {exp.duration}
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {exp.location}
-                      </div>
-                    </div>
+              <div className="md:w-1/3">
+                <span className="font-label-md text-label-md text-primary font-bold">{exp.period}</span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mt-xs">{exp.title}</h4>
+                <p className="font-label-md text-label-md text-secondary mt-1">{exp.company}</p>
+                <div className="flex flex-col gap-xs mt-sm text-sm text-on-surface-variant">
+                  <div className="flex items-center gap-xs">
+                    <Calendar className="w-4 h-4" />
+                    {exp.duration}
                   </div>
-
-                  {/* Description */}
-                  <p className="text-slate-400 mb-6">{exp.description}</p>
-
-                  {/* Achievements */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-white mb-3">Principais Conquistas:</h4>
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start text-slate-400">
-                          <span className="w-2 h-2 bg-primary-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="flex items-center gap-xs">
+                    <MapPin className="w-4 h-4" />
+                    {exp.location}
                   </div>
+                  <span className={`inline-flex w-fit px-sm py-xs rounded-full font-label-sm text-label-sm mt-xs ${
+                    exp.type === 'Full-time'
+                      ? 'bg-secondary-container/30 text-secondary'
+                      : exp.type === 'Freelance'
+                      ? 'bg-tertiary-container/30 text-tertiary'
+                      : 'bg-surface-container-high text-on-surface-variant'
+                  }`}>
+                    {exp.type}
+                  </span>
+                </div>
+              </div>
 
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="font-semibold text-white mb-3">Tecnologias:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-slate-700 text-primary-400 rounded-md text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+              <div className="md:w-2/3 glass-card p-lg rounded-xl">
+                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-md">
+                  {exp.description}
+                </p>
+                <ul className="space-y-2 mb-md">
+                  {exp.achievements.map((achievement, idx) => (
+                    <li key={idx} className="flex items-start text-on-surface-variant text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-sm">
+                  {exp.technologies.map((tech) => (
+                    <span key={tech} className="bg-surface-container px-sm py-1 rounded text-label-sm border border-outline-variant/30 text-on-surface-variant">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Skills & Soft Skills */}
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Professional Skills */}
-          <div className="bg-slate-800 rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-white mb-6">Competências Profissionais</h3>
-            <div className="grid grid-cols-2 gap-4">
+        {/* Bento Grid for Skills & Education */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+          <div className="md:col-span-2 glass-card rounded-2xl p-xl">
+            <h4 className="font-headline-lg text-headline-lg text-on-surface mb-lg">Competências Profissionais</h4>
+            <div className="grid grid-cols-2 gap-md">
               {skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex items-center p-4 bg-slate-700 rounded-lg"
-                >
-                  <div className="text-primary-400 mr-3">{skill.icon}</div>
-                  <span className="font-medium text-slate-300">{skill.name}</span>
+                <div key={skill.name} className="flex items-center p-md bg-surface-container-high rounded-lg">
+                  <div className="text-primary mr-3">{skill.icon}</div>
+                  <span className="font-medium text-on-surface-variant">{skill.name}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Education */}
-          <div className="bg-slate-800 rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-white mb-6">Educação</h3>
-            {education.map((edu, index) => (
-              <div key={index} className="border-l-4 border-primary-500 pl-6 pb-6">
-                <h4 className="text-lg font-semibold text-white mb-2">{edu.title}</h4>
-                <p className="text-primary-400 font-medium mb-2">{edu.institution}</p>
-                <p className="text-slate-400 text-sm mb-3">{edu.period}</p>
-                <p className="text-slate-400">{edu.description}</p>
-              </div>
-            ))}
-
-            {/* Certifications placeholder */}
-            <div className="mt-8 p-4 bg-slate-700 rounded-lg">
-              <h4 className="font-semibold text-white mb-2">🏆 Próximos Passos</h4>
-              <p className="text-slate-400 text-sm">
-                Sempre em busca de novas certificações e conhecimentos para me manter atualizado
-                com as melhores práticas do mercado.
-              </p>
+          <div className="bg-primary-container/20 rounded-2xl p-xl border border-primary/20 flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-md">
+              <GraduationCap className="text-primary" size={28} />
             </div>
+            <h4 className="font-headline-md text-headline-md text-on-surface mb-xs">{education.title}</h4>
+            <p className="text-primary font-label-md text-label-md mb-xs">{education.institution}</p>
+            <p className="text-on-surface-variant text-sm mb-sm">{education.period}</p>
+            <p className="text-on-surface-variant text-sm">{education.description}</p>
           </div>
         </div>
       </div>

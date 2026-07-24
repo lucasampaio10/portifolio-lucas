@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,21 +15,21 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-slate-900/90 backdrop-blur-sm border-b border-slate-700 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <header className="fixed top-0 w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 z-50">
+      <div className="max-w-container-max mx-auto px-md sm:px-lg">
+        <div className="flex justify-between items-center py-md">
           {/* Logo/Name */}
-          <div className="text-2xl font-bold text-primary-400">
-            Lucas<span className="text-primary-500">Dev</span>
+          <div className="font-headline-md text-headline-md font-bold text-on-surface">
+            Portifolio.Lucas
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex gap-xl items-center">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-slate-300 hover:text-primary-400 transition-colors duration-200 font-medium"
+                className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -37,35 +37,45 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Social Links */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Social Links + CV */}
+          <div className="hidden md:flex items-center gap-lg">
+            <div className="flex items-center gap-md">
+              <a
+                href="https://github.com/lucasampaio10"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/lucassampaio-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="mailto:lukasrocha0402@gmail.com"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
+              >
+                <Mail size={20} />
+              </a>
+            </div>
             <a
-              href="https://github.com/lucasampaio10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
+              href="/Lucas_Sampaio_Curriculo_Desenvolvedor_fullstack.pdf"
+              download="Lucas_Sampaio_Curriculo_Desenvolvedor_fullstack.pdf"
+              className="inline-flex items-center gap-sm bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity"
             >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/lucassampaio-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="mailto:lukasrocha0402@gmail.com"
-              className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
-            >
-              <Mail size={20} />
+              <Download size={16} />
+              Currículo
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-300"
+            className="md:hidden text-on-surface"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -74,25 +84,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-700">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden py-md border-t border-outline-variant/20">
+            <nav className="flex flex-col gap-md">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-slate-300 hover:text-primary-400 transition-colors duration-200 font-medium"
+                  className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-slate-700">
+            <div className="flex items-center gap-md mt-md pt-md border-t border-outline-variant/20">
               <a
                 href="https://github.com/lucasampaio10"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
               >
                 <Github size={20} />
               </a>
@@ -100,15 +110,23 @@ const Header = () => {
                 href="https://www.linkedin.com/in/lucassampaio-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="mailto:lukasrocha0402@gmail.com"
-                className="text-slate-400 hover:text-primary-400 transition-colors duration-200"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200"
               >
                 <Mail size={20} />
+              </a>
+              <a
+                href="/Lucas_Sampaio_Curriculo_Desenvolvedor_fullstack.pdf"
+                download="Lucas_Sampaio_Curriculo_Desenvolvedor_fullstack.pdf"
+                className="inline-flex items-center gap-sm bg-primary-container text-on-primary-container px-md py-xs rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity ml-auto"
+              >
+                <Download size={16} />
+                Currículo
               </a>
             </div>
           </div>

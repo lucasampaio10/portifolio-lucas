@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  background-color: #0f172a;
-  color: #f1f5f9;
+  background-color: #11131a;
+  color: #e1e2eb;
 }
 
 html {
@@ -17,14 +17,20 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #1d1f26;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #434653;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #8d909e;
+}
+
+.glass-card {
+  background: rgba(29, 31, 38, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(141, 144, 158, 0.1);
 }
