@@ -41,7 +41,7 @@ const Experience = () => {
       company: 'Impar Tecnologia',
       location: 'Fortaleza, Ceará - Presencial',
       period: 'Janeiro 2026 - Março 2026',
-      duration: '1+ mês',
+      duration: '3+ mês',
       type: 'Full-time',
       description: 'Garantia de qualidade em sistemas críticos de saúde pública, atuando com automação de testes e processos de QA em aplicações web e mobile.',
       achievements: [
