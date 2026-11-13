@@ -1,9 +1,28 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpRight, ExternalLink, Github, Play, Smartphone } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { ArrowUpRight, ExternalLink, Github, Play, Server, Smartphone } from 'lucide-react'
 
-const projects = [
+type Project = {
+  id: number
+  title: string
+  subtitle: string
+  description: string
+  /** Capa do card: vídeo, imagem ou, na falta dos dois, o ícone sobre o gradiente. */
+  video?: string
+  image?: string
+  icon?: ReactNode
+  technologies: string[]
+  status: string
+  category: string
+  github: string
+  demo: string | null
+  color: string
+  span: string
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'DashInvest',
@@ -49,34 +68,34 @@ const projects = [
   {
     id: 4,
     title: 'ShopEasy',
-    subtitle: 'E-commerce Mobile',
-    description: 'Carrinho de compras, pagamentos via Stripe, reviews de produtos e chat em tempo real com vendedores.',
-    icon: <Smartphone className="w-10 h-10" />,
-    technologies: ['React Native', 'Node.js', 'Stripe API'],
-    status: 'Em desenvolvimento',
-    category: 'Mobile',
-    github: 'https://github.com/lucasrocha0402/shopeasy',
+    subtitle: 'E-commerce em Microsserviços',
+    description: 'Catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, fechando o pedido por uma saga com compensação de estoque. Outbox transacional e consumidores idempotentes sobre RabbitMQ.',
+    icon: <Server className="w-10 h-10" />,
+    technologies: ['.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'PostgreSQL', 'Docker'],
+    status: 'Concluído',
+    category: 'Backend',
+    github: 'https://github.com/lucasampaio10/shopeasy',
     demo: null,
-    color: 'from-purple-500 to-indigo-600',
+    color: 'from-slate-700 to-slate-900',
     span: 'md:col-span-4',
   },
   {
     id: 5,
     title: 'DataViz Dashboard',
-    subtitle: 'Analytics & Visualização',
-    description: 'Dashboard interativo para visualização de dados com gráficos dinâmicos, filtros avançados e exportação de relatórios.',
-    icon: <Smartphone className="w-10 h-10" />,
-    technologies: ['Next.js', 'TypeScript', 'Chart.js'],
+    subtitle: 'Painel de Vendas com CQRS',
+    description: 'Um serviço registra as vendas e outro monta, a partir dos eventos, as tabelas que o painel consulta. Escrita e leitura em bancos separados, com indicadores comparados ao período anterior.',
+    image: '/projects/dataviz-dashboard.png',
+    technologies: ['.NET 8', 'Next.js', 'Chart.js', 'RabbitMQ', 'Docker'],
     status: 'Concluído',
     category: 'Web',
-    github: 'https://github.com/lucasampaio10/traidehubfront',
-    demo: 'https://dataviz-dashboard.vercel.app',
+    github: 'https://github.com/lucasampaio10/dataviz-dashboard',
+    demo: null,
     color: 'from-cyan-500 to-blue-600',
     span: 'md:col-span-4',
   },
 ]
 
-const filters = ['Todos', 'Mobile', 'Web']
+const filters = ['Todos', 'Mobile', 'Web', 'Backend']
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('Todos')
@@ -95,7 +114,7 @@ const Projects = () => {
             Alguns projetos que fiz
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
-            De app de investimentos a dashboard de trading — aqui vai uma amostra
+            De app de investimentos a backend em microsserviços — aqui vai uma amostra
             do que já construí, com o código aberto pra quem quiser dar uma olhada.
           </p>
         </div>
@@ -130,6 +149,14 @@ const Projects = () => {
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
+                ) : project.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    className="w-full h-full object-cover object-left-top"
+                    src={project.image}
+                    alt={`Tela do projeto ${project.title}`}
+                    loading="lazy"
+                  />
                 ) : (
                   <div className={`w-full h-full bg-gradient-to-br ${project.color} flex items-center justify-center text-white`}>
                     {project.icon}
