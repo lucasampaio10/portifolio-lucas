@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Mail,
   Phone,
@@ -12,6 +13,7 @@ import {
   Calendar,
   Sparkles
 } from 'lucide-react'
+import Reveal from './motion/Reveal'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -97,7 +99,7 @@ ${formData.message}
   return (
     <section id="contact" className="py-xl bg-surface-container-lowest">
       <div className="max-w-container-max mx-auto px-md sm:px-lg">
-        <div className="max-w-3xl mb-xl">
+        <Reveal className="max-w-3xl mb-xl">
           <span className="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-md block">Aberto para colaborações</span>
           <h2 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-lg">
             Tem um projeto em mente? <span className="text-primary">Vamos conversar</span>
@@ -106,11 +108,11 @@ ${formData.message}
             Pode chamar por email, WhatsApp ou pelo formulário abaixo. Se for só pra tirar uma dúvida
             ou trocar ideia sobre alguma tecnologia, também responde.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl">
           {/* Left: Info & Socials */}
-          <div className="lg:col-span-5 flex flex-col gap-lg">
+          <Reveal direction="left" className="lg:col-span-5 flex flex-col gap-lg">
             <div className="glass-card p-lg rounded-xl flex flex-col gap-md">
               {contactInfo.map((info, index) => (
                 <div key={info.label}>
@@ -178,10 +180,10 @@ ${formData.message}
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: Contact Form */}
-          <div className="lg:col-span-7">
+          <Reveal direction="right" className="lg:col-span-7">
             <div className="glass-card p-xl rounded-xl">
               <form onSubmit={handleSubmit} className="flex flex-col gap-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
@@ -253,17 +255,19 @@ ${formData.message}
                   <p className="text-label-sm text-on-surface-variant max-w-[240px] text-center sm:text-left">
                     Costumo responder em até 24-48h úteis.
                   </p>
-                  <button
+                  <motion.button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md font-bold hover:opacity-90 transition-all"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md font-bold hover:opacity-90 transition-opacity"
                   >
                     Enviar Mensagem
                     <Send size={20} />
-                  </button>
+                  </motion.button>
                 </div>
               </form>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

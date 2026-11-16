@@ -2,17 +2,21 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Skills from '@/components/Skills'
 import Projects from '@/components/Projects'
+import Architecture from '@/components/Architecture'
 import Experience from '@/components/Experience'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import TechMarquee from '@/components/motion/TechMarquee'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <TechMarquee />
       <Skills />
       <Projects />
+      <Architecture />
       <Experience />
       <Contact />
       <Footer />

@@ -2,15 +2,20 @@
 
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import { motion } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, Github, Play, Server, Smartphone } from 'lucide-react'
+import ProjectShowcase from './ProjectShowcase'
+import Reveal from './motion/Reveal'
+import TiltCard from './motion/TiltCard'
 
 type Project = {
   id: number
   title: string
   subtitle: string
   description: string
-  /** Capa do card: vídeo, imagem ou, na falta dos dois, o ícone sobre o gradiente. */
+  /** Capa do card: vídeo, imagens em rotação (crossfade), uma imagem só, ou o ícone sobre o gradiente. */
   video?: string
+  images?: string[]
   image?: string
   icon?: ReactNode
   technologies: string[]
@@ -68,13 +73,13 @@ const projects: Project[] = [
   {
     id: 4,
     title: 'ShopEasy',
-    subtitle: 'E-commerce em Microsserviços',
-    description: 'Catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, fechando o pedido por uma saga com compensação de estoque. Outbox transacional e consumidores idempotentes sobre RabbitMQ.',
-    image: '/projects/shopeasy-architecture.png',
+    subtitle: 'E-commerce Mobile + Microsserviços',
+    description: 'App em React Native fechando pedidos de verdade contra um backend de catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, com saga e compensação de estoque sobre RabbitMQ.',
+    images: ['/projects/shopeasy-app.png', '/projects/shopeasy-architecture.png'],
     icon: <Server className="w-10 h-10" />,
-    technologies: ['.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'PostgreSQL', 'Docker'],
+    technologies: ['React Native', '.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'Docker'],
     status: 'Concluído',
-    category: 'Backend',
+    category: 'Mobile',
     github: 'https://github.com/lucasampaio10/shopeasy',
     demo: null,
     color: 'from-slate-700 to-slate-900',
@@ -96,7 +101,7 @@ const projects: Project[] = [
   },
 ]
 
-const filters = ['Todos', 'Mobile', 'Web', 'Backend']
+const filters = ['Todos', 'Mobile', 'Web']
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('Todos')
@@ -109,16 +114,16 @@ const Projects = () => {
     <section id="projects" className="py-xl bg-surface-container-lowest">
       <div className="max-w-container-max mx-auto px-md sm:px-lg">
         {/* Header */}
-        <div className="mb-xl">
+        <Reveal className="mb-xl">
           <span className="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-md block">Projetos Selecionados</span>
           <h2 className="font-headline-lg text-headline-lg text-on-surface mb-sm max-w-2xl">
             Alguns projetos que fiz
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
-            De app de investimentos a backend em microsserviços — aqui vai uma amostra
+            De app de investimentos a backend em microsserviços, uma amostra
             do que já construí, com o código aberto pra quem quiser dar uma olhada.
           </p>
-        </div>
+        </Reveal>
 
         {/* Filters */}
         <div className="flex flex-wrap items-center gap-lg border-b border-outline-variant/30 pb-md mb-xl">
@@ -126,19 +131,27 @@ const Projects = () => {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`font-label-md text-label-md transition-colors ${
+              className={`relative font-label-md text-label-md transition-colors pb-xs ${
                 activeFilter === filter ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface'
               }`}
             >
               {filter}
+              {activeFilter === filter && (
+                <motion.span
+                  layoutId="project-filter-underline"
+                  className="absolute left-0 right-0 -bottom-[13px] h-[2px] bg-primary"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
             </button>
           ))}
         </div>
 
         {/* Projects Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
-          {visibleProjects.map((project) => (
-            <div key={project.id} className={`${project.span} group`}>
+          {visibleProjects.map((project, index) => (
+            <Reveal key={project.id} delay={index * 0.08} className={project.span}>
+            <TiltCard className="group">
               <div className="relative overflow-hidden rounded-xl aspect-[16/10] mb-md bg-surface-container-high">
                 {project.video ? (
                   <video
@@ -150,6 +163,8 @@ const Projects = () => {
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
+                ) : project.images ? (
+                  <ProjectShowcase images={project.images} alt={`Tela do projeto ${project.title}`} />
                 ) : project.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -211,27 +226,30 @@ const Projects = () => {
                 </div>
                 <ArrowUpRight className="text-primary shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
-            </div>
+            </TiltCard>
+            </Reveal>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="glass-card rounded-xl p-xl flex flex-col md:flex-row items-center justify-between gap-lg">
+        <Reveal className="glass-card rounded-xl p-xl flex flex-col md:flex-row items-center justify-between gap-lg">
           <div className="text-center md:text-left">
             <h3 className="font-headline-lg text-headline-lg text-on-surface mb-sm">Gostou do que viu?</h3>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-              Isso é só uma parte — tenho outros projetos em andamento e espaço na agenda
+              Isso é só uma parte. Tenho outros projetos em andamento e espaço na agenda
               pra novos desafios.
             </p>
           </div>
-          <a
+          <motion.a
             href="#contact"
-            className="inline-flex items-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:opacity-90 transition-all shrink-0"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity shrink-0"
           >
             Vamos conversar
             <ExternalLink size={20} />
-          </a>
-        </div>
+          </motion.a>
+        </Reveal>
       </div>
     </section>
   )
