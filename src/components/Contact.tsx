@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
+  Check,
+  Copy,
   Mail,
   Phone,
   MapPin,
@@ -15,6 +17,8 @@ import {
 } from 'lucide-react'
 import Reveal from './motion/Reveal'
 
+const CONTACT_EMAIL = 'lukasrocha0402@gmail.com'
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,6 +26,11 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  // Depois de enviar, guardo a mensagem pronta e mostro um jeito de copiar: abrir o app de
+  // email depende de o visitante ter um configurado, e isso falha calado — sem essa saída,
+  // quem não tem um cliente de email de pé no aparelho acha que o formulário não fez nada.
+  const [sentMessage, setSentMessage] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
 
   const contactInfo = [
     {
@@ -77,23 +86,33 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const subject = encodeURIComponent(formData.subject || 'Contato via Portfólio')
-    const body = encodeURIComponent(`
-    Nome: ${formData.name}
-    Email: ${formData.email}
+    const subjectLine = formData.subject || 'Contato via Portfólio'
+    const rawBody = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
 
-Mensagem:
-${formData.message}
-    `)
+    const link = document.createElement('a')
+    link.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(rawBody)}`
+    link.click()
 
-    window.location.href = `mailto:lukasrocha0402@gmail.com?subject=${subject}&body=${body}`
-
+    setSentMessage(`Assunto: ${subjectLine}\n\n${rawBody}`)
+    setCopied(false)
     setFormData({
       name: '',
       email: '',
       subject: '',
       message: ''
     })
+  }
+
+  const handleCopy = async () => {
+    if (!sentMessage) return
+
+    try {
+      await navigator.clipboard.writeText(`Para: ${CONTACT_EMAIL}\n${sentMessage}`)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      // Sem permissão de clipboard: o texto já está visível na tela pra selecionar na mão.
+    }
   }
 
   return (
@@ -266,6 +285,27 @@ ${formData.message}
                   </motion.button>
                 </div>
               </form>
+
+              {sentMessage && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="mt-lg pt-lg border-t border-outline-variant/30"
+                >
+                  <p className="text-on-surface font-label-md text-label-md mb-sm">
+                    Seu app de email deveria ter aberto com a mensagem pronta. Não abriu? Copie e manda
+                    pra <strong className="text-primary">{CONTACT_EMAIL}</strong> por qualquer outro meio.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    className="inline-flex items-center gap-sm px-md py-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors"
+                  >
+                    {copied ? <Check size={16} className="text-primary" /> : <Copy size={16} />}
+                    {copied ? 'Copiado!' : 'Copiar mensagem'}
+                  </button>
+                </motion.div>
+              )}
             </div>
           </Reveal>
         </div>
