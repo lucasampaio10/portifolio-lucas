@@ -1,4 +1,8 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code, GraduationCap } from 'lucide-react'
+import Reveal from './motion/Reveal'
 
 const Experience = () => {
   const experiences = [
@@ -207,19 +211,21 @@ const Experience = () => {
     <section id="experience" className="py-xl bg-surface">
       <div className="max-w-container-max mx-auto px-md sm:px-lg">
         {/* Header */}
-        <header className="mb-xl">
-          <div className="inline-flex items-center gap-sm px-md py-xs rounded-full bg-secondary-container/30 border border-secondary/20 mb-md">
-            <Briefcase className="text-secondary" size={16} />
-            <span className="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Jornada Profissional</span>
-          </div>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-sm">
-            De estagiário de QA a Engenheiro de Software
-          </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
-            Passei por testes, automação e desenvolvimento — cada etapa me ensinou
-            algo que uso até hoje no código que escrevo.
-          </p>
-        </header>
+        <Reveal>
+          <header className="mb-xl">
+            <div className="inline-flex items-center gap-sm px-md py-xs rounded-full bg-secondary-container/30 border border-secondary/20 mb-md">
+              <Briefcase className="text-secondary" size={16} />
+              <span className="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Jornada Profissional</span>
+            </div>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-sm">
+              De estagiário de QA a Engenheiro de Software
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+              Passei por testes, automação e desenvolvimento — cada etapa me ensinou
+              algo que uso até hoje no código que escrevo.
+            </p>
+          </header>
+        </Reveal>
 
         {/* Timeline */}
         <div className="flex items-center gap-md mb-lg">
@@ -228,11 +234,24 @@ const Experience = () => {
         </div>
 
         <div className="relative mb-xl">
-          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary-container to-transparent opacity-20 hidden md:block"></div>
+          <motion.div
+            className="absolute left-6 top-0 w-[2px] bg-gradient-to-b from-primary via-primary-container to-transparent opacity-20 hidden md:block origin-top"
+            initial={{ height: 0 }}
+            whileInView={{ height: '100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.1, ease: 'easeInOut' }}
+          ></motion.div>
 
-          {experiences.map((exp) => (
-            <div key={exp.id} className="relative flex flex-col md:flex-row gap-lg md:pl-20 mb-lg group">
-              <div className="absolute left-4 top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10 hidden md:block group-hover:scale-150 transition-transform duration-300"></div>
+          {experiences.map((exp, index) => (
+            <Reveal key={exp.id} delay={Math.min(index * 0.1, 0.4)} className="relative flex flex-col md:flex-row gap-lg md:pl-20 mb-lg group">
+              <motion.div
+                className="absolute left-4 top-2 w-4 h-4 rounded-full bg-primary border-4 border-surface z-10 hidden md:block"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.5 }}
+                transition={{ duration: 0.3, delay: Math.min(index * 0.1, 0.4) + 0.2 }}
+              ></motion.div>
 
               <div className="md:w-1/3">
                 <span className="font-label-md text-label-md text-primary font-bold">{exp.period}</span>
@@ -279,12 +298,12 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* Bento Grid for Skills & Education */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-lg">
           <div className="md:col-span-2 glass-card rounded-2xl p-xl">
             <h4 className="font-headline-lg text-headline-lg text-on-surface mb-lg">Competências Profissionais</h4>
             <div className="grid grid-cols-2 gap-md">
@@ -306,7 +325,7 @@ const Experience = () => {
             <p className="text-on-surface-variant text-sm mb-sm">{education.period}</p>
             <p className="text-on-surface-variant text-sm">{education.description}</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

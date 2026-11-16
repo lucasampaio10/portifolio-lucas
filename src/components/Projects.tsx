@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import { motion } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, Github, Play, Server, Smartphone } from 'lucide-react'
 import ProjectShowcase from './ProjectShowcase'
+import Reveal from './motion/Reveal'
+import TiltCard from './motion/TiltCard'
 
 type Project = {
   id: number
@@ -111,7 +114,7 @@ const Projects = () => {
     <section id="projects" className="py-xl bg-surface-container-lowest">
       <div className="max-w-container-max mx-auto px-md sm:px-lg">
         {/* Header */}
-        <div className="mb-xl">
+        <Reveal className="mb-xl">
           <span className="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-md block">Projetos Selecionados</span>
           <h2 className="font-headline-lg text-headline-lg text-on-surface mb-sm max-w-2xl">
             Alguns projetos que fiz
@@ -120,7 +123,7 @@ const Projects = () => {
             De app de investimentos a backend em microsserviços — aqui vai uma amostra
             do que já construí, com o código aberto pra quem quiser dar uma olhada.
           </p>
-        </div>
+        </Reveal>
 
         {/* Filters */}
         <div className="flex flex-wrap items-center gap-lg border-b border-outline-variant/30 pb-md mb-xl">
@@ -128,19 +131,27 @@ const Projects = () => {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`font-label-md text-label-md transition-colors ${
+              className={`relative font-label-md text-label-md transition-colors pb-xs ${
                 activeFilter === filter ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface'
               }`}
             >
               {filter}
+              {activeFilter === filter && (
+                <motion.span
+                  layoutId="project-filter-underline"
+                  className="absolute left-0 right-0 -bottom-[13px] h-[2px] bg-primary"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
             </button>
           ))}
         </div>
 
         {/* Projects Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
-          {visibleProjects.map((project) => (
-            <div key={project.id} className={`${project.span} group`}>
+          {visibleProjects.map((project, index) => (
+            <Reveal key={project.id} delay={index * 0.08} className={project.span}>
+            <TiltCard className="group">
               <div className="relative overflow-hidden rounded-xl aspect-[16/10] mb-md bg-surface-container-high">
                 {project.video ? (
                   <video
@@ -215,12 +226,13 @@ const Projects = () => {
                 </div>
                 <ArrowUpRight className="text-primary shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
-            </div>
+            </TiltCard>
+            </Reveal>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="glass-card rounded-xl p-xl flex flex-col md:flex-row items-center justify-between gap-lg">
+        <Reveal className="glass-card rounded-xl p-xl flex flex-col md:flex-row items-center justify-between gap-lg">
           <div className="text-center md:text-left">
             <h3 className="font-headline-lg text-headline-lg text-on-surface mb-sm">Gostou do que viu?</h3>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
@@ -228,14 +240,16 @@ const Projects = () => {
               pra novos desafios.
             </p>
           </div>
-          <a
+          <motion.a
             href="#contact"
-            className="inline-flex items-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:opacity-90 transition-all shrink-0"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-sm bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity shrink-0"
           >
             Vamos conversar
             <ExternalLink size={20} />
-          </a>
-        </div>
+          </motion.a>
+        </Reveal>
       </div>
     </section>
   )
