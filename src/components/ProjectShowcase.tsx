@@ -37,7 +37,7 @@ const ProjectShowcase = ({ images, alt, intervalMs = 4200 }: ProjectShowcaseProp
           <img
             key={src}
             src={src}
-            alt={`${alt} — ${index === 0 ? 'tela do app' : `visão ${index + 1}`}`}
+            alt={`${alt}: ${index === 0 ? 'tela do app' : `visão ${index + 1}`}`}
             loading={index === 0 ? 'eager' : 'lazy'}
             className="absolute inset-0 w-full h-full object-cover object-left-top transition-opacity ease-in-out"
             style={{

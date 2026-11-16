@@ -120,7 +120,7 @@ const Projects = () => {
             Alguns projetos que fiz
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
-            De app de investimentos a backend em microsserviços — aqui vai uma amostra
+            De app de investimentos a backend em microsserviços, uma amostra
             do que já construí, com o código aberto pra quem quiser dar uma olhada.
           </p>
         </Reveal>
@@ -236,7 +236,7 @@ const Projects = () => {
           <div className="text-center md:text-left">
             <h3 className="font-headline-lg text-headline-lg text-on-surface mb-sm">Gostou do que viu?</h3>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-              Isso é só uma parte — tenho outros projetos em andamento e espaço na agenda
+              Isso é só uma parte. Tenho outros projetos em andamento e espaço na agenda
               pra novos desafios.
             </p>
           </div>

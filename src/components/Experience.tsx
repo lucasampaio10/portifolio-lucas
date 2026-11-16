@@ -221,7 +221,7 @@ const Experience = () => {
               De estagiário de QA a Engenheiro de Software
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
-              Passei por testes, automação e desenvolvimento — cada etapa me ensinou
+              Passei por testes, automação e desenvolvimento, e cada etapa me ensinou
               algo que uso até hoje no código que escrevo.
             </p>
           </header>
