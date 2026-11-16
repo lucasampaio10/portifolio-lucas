@@ -68,13 +68,13 @@ const projects: Project[] = [
   {
     id: 4,
     title: 'ShopEasy',
-    subtitle: 'E-commerce em Microsserviços',
-    description: 'Catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, fechando o pedido por uma saga com compensação de estoque. Outbox transacional e consumidores idempotentes sobre RabbitMQ.',
-    image: '/projects/shopeasy-architecture.png',
+    subtitle: 'E-commerce Mobile + Microsserviços',
+    description: 'App em React Native fechando pedidos de verdade contra um backend de catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, com saga e compensação de estoque sobre RabbitMQ.',
+    image: '/projects/shopeasy-app.png',
     icon: <Server className="w-10 h-10" />,
-    technologies: ['.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'PostgreSQL', 'Docker'],
+    technologies: ['React Native', '.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'Docker'],
     status: 'Concluído',
-    category: 'Backend',
+    category: 'Mobile',
     github: 'https://github.com/lucasampaio10/shopeasy',
     demo: null,
     color: 'from-slate-700 to-slate-900',
@@ -96,7 +96,7 @@ const projects: Project[] = [
   },
 ]
 
-const filters = ['Todos', 'Mobile', 'Web', 'Backend']
+const filters = ['Todos', 'Mobile', 'Web']
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('Todos')
