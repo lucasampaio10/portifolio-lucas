@@ -3,14 +3,16 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { ArrowUpRight, ExternalLink, Github, Play, Server, Smartphone } from 'lucide-react'
+import ProjectShowcase from './ProjectShowcase'
 
 type Project = {
   id: number
   title: string
   subtitle: string
   description: string
-  /** Capa do card: vídeo, imagem ou, na falta dos dois, o ícone sobre o gradiente. */
+  /** Capa do card: vídeo, imagens em rotação (crossfade), uma imagem só, ou o ícone sobre o gradiente. */
   video?: string
+  images?: string[]
   image?: string
   icon?: ReactNode
   technologies: string[]
@@ -70,7 +72,7 @@ const projects: Project[] = [
     title: 'ShopEasy',
     subtitle: 'E-commerce Mobile + Microsserviços',
     description: 'App em React Native fechando pedidos de verdade contra um backend de catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, com saga e compensação de estoque sobre RabbitMQ.',
-    image: '/projects/shopeasy-app.png',
+    images: ['/projects/shopeasy-app.png', '/projects/shopeasy-architecture.png'],
     icon: <Server className="w-10 h-10" />,
     technologies: ['React Native', '.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'Docker'],
     status: 'Concluído',
@@ -150,6 +152,8 @@ const Projects = () => {
                   >
                     <source src={project.video} type="video/mp4" />
                   </video>
+                ) : project.images ? (
+                  <ProjectShowcase images={project.images} alt={`Tela do projeto ${project.title}`} />
                 ) : project.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
