@@ -5,6 +5,8 @@ import { ArrowDown, ArrowRight, Download } from 'lucide-react'
 import Image from 'next/image'
 import AnimatedBackdrop from './motion/AnimatedBackdrop'
 import AnimatedCounter from './motion/AnimatedCounter'
+import ParticleField from './motion/ParticleField'
+import TechOrbit from './motion/TechOrbit'
 
 const container = {
   hidden: {},
@@ -29,10 +31,11 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-background/40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/50"></div>
+        <ParticleField />
         <AnimatedBackdrop />
       </div>
 
-      <div className="relative z-10 max-w-container-max mx-auto px-md sm:px-lg lg:px-xl py-xl w-full">
+      <div className="relative z-10 max-w-container-max mx-auto px-md sm:px-lg lg:px-xl py-xl w-full flex items-center justify-between gap-xl">
         <motion.div
           className="glass-card max-w-2xl rounded-2xl p-xl"
           initial="hidden"
@@ -114,6 +117,8 @@ const Hero = () => {
             </div>
           </motion.div>
         </motion.div>
+
+        <TechOrbit />
 
         {/* Scroll indicator */}
         <motion.div
