@@ -70,6 +70,7 @@ const projects: Project[] = [
     title: 'ShopEasy',
     subtitle: 'E-commerce em Microsserviços',
     description: 'Catálogo, pedidos e pagamentos em serviços separados, cada um com seu banco, fechando o pedido por uma saga com compensação de estoque. Outbox transacional e consumidores idempotentes sobre RabbitMQ.',
+    image: '/projects/shopeasy-architecture.png',
     icon: <Server className="w-10 h-10" />,
     technologies: ['.NET 8', 'DDD', 'CQRS', 'RabbitMQ', 'PostgreSQL', 'Docker'],
     status: 'Concluído',
