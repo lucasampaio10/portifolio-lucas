@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react'
 import {
   AlertTriangle,
+  ArrowUpRight,
   Database,
   GitMerge,
   Inbox,
@@ -110,6 +111,18 @@ const Architecture = () => {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={decisions.length * 0.06} className="mt-lg">
+          <a
+            href="https://github.com/lucasampaio10/shopeasy/blob/docs/solid-principles/docs/SOLID.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-sm font-label-md text-label-md text-primary hover:text-primary/80 transition-colors"
+          >
+            Quer ver o SOLID aplicado linha a linha? Veja no código do ShopEasy
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </Reveal>
       </div>
     </section>
   )
