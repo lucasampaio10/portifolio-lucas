@@ -24,12 +24,14 @@ type Decision = {
   title: string
   description: string
   accent: string
+  repo: string
   file: string
   snippet: string
   githubUrl: string
 }
 
-const REPO_BASE = 'https://github.com/lucasampaio10/shopeasy/blob/main/backend/src'
+const SHOPEASY_BASE = 'https://github.com/lucasampaio10/shopeasy/blob/main/backend/src'
+const DATAVIZ_BASE = 'https://github.com/lucasampaio10/dataviz-dashboard/blob/main/backend/src'
 
 const decisions: Decision[] = [
   {
@@ -38,6 +40,7 @@ const decisions: Decision[] = [
     description:
       'A regra fica dentro do próprio agregado, não espalhada pelos handlers. O pedido já sabe que não pode ser pago duas vezes — eu só chamo o método certo e ele se vira.',
     accent: 'text-primary bg-primary/15',
+    repo: 'shopeasy',
     file: 'Ordering.Domain/Orders/Order.cs',
     snippet: `public void MarkAsPaid(Guid paymentId)
 {
@@ -47,21 +50,25 @@ const decisions: Decision[] = [
     Status = OrderStatus.Paid;
     PaymentId = paymentId;
 }`,
-    githubUrl: `${REPO_BASE}/Services/Ordering/ShopEasy.Ordering.Domain/Orders/Order.cs`,
+    githubUrl: `${SHOPEASY_BASE}/Services/Ordering/ShopEasy.Ordering.Domain/Orders/Order.cs`,
   },
   {
     icon: <GitMerge className="w-7 h-7" />,
     title: 'CQRS',
     description:
-      'Separo escrita de leitura. Quem muda estado passa pelo domínio e pelas regras; quem só lê vai direto no banco e projeta pro formato que a tela precisa, sem esse caminho todo.',
+      'No DataViz Dashboard isso vira dois serviços: Sales só escreve a venda; Analytics projeta esse evento nas tabelas que o painel consulta. A leitura nunca espera o lado de escrita responder.',
     accent: 'text-secondary bg-secondary/15',
-    file: 'BuildingBlocks/Cqrs/Requests.cs',
-    snippet: `public interface ICommand<TResponse>
-    : IRequest<Result<TResponse>>;
-
-public interface IQuery<TResponse>
-    : IRequest<Result<TResponse>>;`,
-    githubUrl: `${REPO_BASE}/BuildingBlocks/ShopEasy.BuildingBlocks/Cqrs/Requests.cs`,
+    repo: 'dataviz-dashboard',
+    file: 'Analytics.Application/Projections/ProjectSales.cs',
+    snippet: `/// Write port of the read model. Each method
+/// must be idempotent per event id, because
+/// the broker may deliver it more than once.
+public interface ISalesProjection
+{
+    Task Apply(SaleRecordedIntegrationEvent e, ...);
+    Task Apply(SaleRefundedIntegrationEvent e, ...);
+}`,
+    githubUrl: `${DATAVIZ_BASE}/Analytics/DataViz.Analytics.Application/Projections/ProjectSales.cs`,
   },
   {
     icon: <LayoutGrid className="w-7 h-7" />,
@@ -69,6 +76,7 @@ public interface IQuery<TResponse>
     description:
       'Domain → Application → Infrastructure → Api, sempre nessa direção. O domínio nem fica sabendo que por trás tem banco, fila ou HTTP — isso é problema da camada de fora.',
     accent: 'text-tertiary bg-tertiary/15',
+    repo: 'shopeasy',
     file: 'Ordering.Domain/Orders/IOrderRepository.cs',
     snippet: `namespace ShopEasy.Ordering.Domain.Orders;
 
@@ -77,7 +85,7 @@ public interface IOrderRepository
     Task<Order?> GetById(Guid id, CancellationToken ct);
     void Add(Order order);
 }`,
-    githubUrl: `${REPO_BASE}/Services/Ordering/ShopEasy.Ordering.Domain/Orders/IOrderRepository.cs`,
+    githubUrl: `${SHOPEASY_BASE}/Services/Ordering/ShopEasy.Ordering.Domain/Orders/IOrderRepository.cs`,
   },
   {
     icon: <Database className="w-7 h-7" />,
@@ -85,13 +93,14 @@ public interface IOrderRepository
     description:
       'Cada microsserviço tem o seu banco e ninguém bisbilhota tabela alheia. Se um serviço precisa de um dado de outro, ele escuta um evento — quem publica é sempre o dono daquele dado.',
     accent: 'text-primary bg-primary/15',
+    repo: 'shopeasy',
     file: 'Catalog.Application/Reservations/ReserveStockWhenOrderPlaced.cs',
     snippet: `internal sealed class ReserveStockWhenOrderPlaced(...)
     : IIntegrationEventHandler<OrderPlacedIntegrationEvent>
 {
     // Catalog nunca lê tabela de Ordering.
     // O dado chega pronto, dentro do evento.`,
-    githubUrl: `${REPO_BASE}/Services/Catalog/ShopEasy.Catalog.Application/Reservations/ReserveStockWhenOrderPlaced.cs`,
+    githubUrl: `${SHOPEASY_BASE}/Services/Catalog/ShopEasy.Catalog.Application/Reservations/ReserveStockWhenOrderPlaced.cs`,
   },
   {
     icon: <Inbox className="w-7 h-7" />,
@@ -99,6 +108,7 @@ public interface IOrderRepository
     description:
       'O evento é gravado junto com a transação de negócio, na mesma operação de banco. Só depois um processo separado entrega pro broker — assim não existe cenário de "salvei, mas o evento sumiu".',
     accent: 'text-secondary bg-secondary/15',
+    repo: 'shopeasy',
     file: 'BuildingBlocks.Infrastructure/Outbox/OutboxPublisher.cs',
     snippet: `var messages = await context.Set<OutboxMessage>()
     .Where(m => m.ProcessedOnUtc == null)
@@ -108,21 +118,24 @@ public interface IOrderRepository
 
 broker.Publish(message.Type, payload, message.Id);
 message.MarkAsProcessed(DateTime.UtcNow);`,
-    githubUrl: `${REPO_BASE}/BuildingBlocks/ShopEasy.BuildingBlocks.Infrastructure/Outbox/OutboxPublisher.cs`,
+    githubUrl: `${SHOPEASY_BASE}/BuildingBlocks/ShopEasy.BuildingBlocks.Infrastructure/Outbox/OutboxPublisher.cs`,
   },
   {
     icon: <RefreshCw className="w-7 h-7" />,
     title: 'Consumidores idempotentes',
     description:
-      'Fila entrega pelo menos uma vez, e às vezes duas. Então todo consumer que escrevo aguenta receber a mesma mensagem de novo sem bagunçar nada — ou confere o id da operação, ou confia num índice único do banco.',
+      'No DataViz Dashboard isso é uma tabela: todo evento grava o próprio id antes de aplicar o efeito. Se a fila reentregar, o INSERT da segunda vez simplesmente não acontece — e o resto do processamento para ali.',
     accent: 'text-tertiary bg-tertiary/15',
-    file: 'Catalog.Application/Reservations/ReserveStockWhenOrderPlaced.cs',
-    snippet: `var alreadyReserved = await reservations
-    .GetByOrderId(orderPlaced.OrderId, ct) is not null;
+    repo: 'dataviz-dashboard',
+    file: 'Analytics.Infrastructure/ReadModel/SalesProjection.cs',
+    snippet: `const string MarkAsProcessed = """
+    INSERT INTO processed_events (event_id)
+    VALUES (@EventId) ON CONFLICT DO NOTHING
+    """;
 
-if (alreadyReserved)
-    return; // mensagem duplicada, nada a fazer`,
-    githubUrl: `${REPO_BASE}/Services/Catalog/ShopEasy.Catalog.Application/Reservations/ReserveStockWhenOrderPlaced.cs`,
+// só segue se essa foi a primeira entrega
+if (!await IsFirstDelivery(eventId)) return;`,
+    githubUrl: `${DATAVIZ_BASE}/Analytics/DataViz.Analytics.Infrastructure/ReadModel/SalesProjection.cs`,
   },
   {
     icon: <AlertTriangle className="w-7 h-7" />,
@@ -130,13 +143,14 @@ if (alreadyReserved)
     description:
       '"Produto não encontrado" ou "SKU duplicado" eu trato como Result/Error, e só na borda isso vira um HTTP 404 ou 409. Exception eu guardo pra quando algo realmente quebrou e não devia ter acontecido.',
     accent: 'text-primary bg-primary/15',
+    repo: 'shopeasy',
     file: 'BuildingBlocks/Results/Error.cs',
     snippet: `public static Error NotFound(string code, string msg)
     => new(code, msg, ErrorType.NotFound);
 
 public static Error Conflict(string code, string msg)
     => new(code, msg, ErrorType.Conflict);`,
-    githubUrl: `${REPO_BASE}/BuildingBlocks/ShopEasy.BuildingBlocks/Results/Error.cs`,
+    githubUrl: `${SHOPEASY_BASE}/BuildingBlocks/ShopEasy.BuildingBlocks/Results/Error.cs`,
   },
   {
     icon: <Plug className="w-7 h-7" />,
@@ -144,13 +158,14 @@ public static Error Conflict(string code, string msg)
     description:
       'O caso de uso só enxerga a interface — um gateway de pagamento, por exemplo. Trocar o provedor de verdade por outro, ou usar uma versão simulada em dev, não mexe em uma linha sequer da regra de negócio.',
     accent: 'text-secondary bg-secondary/15',
+    repo: 'shopeasy',
     file: 'Payment.Application/Payments/IPaymentGateway.cs',
     snippet: `public interface IPaymentGateway
 {
     Task<ChargeResult> Charge(
         string paymentToken, Money amount, CancellationToken ct);
 }`,
-    githubUrl: `${REPO_BASE}/Services/Payment/ShopEasy.Payment.Application/Payments/IPaymentGateway.cs`,
+    githubUrl: `${SHOPEASY_BASE}/Services/Payment/ShopEasy.Payment.Application/Payments/IPaymentGateway.cs`,
   },
 ]
 
@@ -197,7 +212,10 @@ const DecisionCard = ({ decision }: DecisionCardProps) => {
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <div className="flex items-start justify-between gap-sm">
-            <span className="font-mono text-[11px] text-on-surface-variant/70 truncate">{decision.file}</span>
+            <div className="min-w-0">
+              <span className="font-label-sm text-label-sm text-primary">{decision.repo}</span>
+              <span className="block font-mono text-[11px] text-on-surface-variant/70 truncate">{decision.file}</span>
+            </div>
             <button
               type="button"
               onClick={() => setFlipped(false)}
