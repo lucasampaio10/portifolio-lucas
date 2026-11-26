@@ -211,7 +211,13 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex justify-between items-start gap-md">
+              <a
+                href={project.demo ?? project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex justify-between items-start gap-md"
+                aria-label={`Abrir ${project.title}`}
+              >
                 <div>
                   <h3 className="font-headline-md text-headline-md text-on-surface mb-xs">{project.title}</h3>
                   <p className="text-primary font-label-md text-label-md mb-sm">{project.subtitle}</p>
@@ -225,7 +231,7 @@ const Projects = () => {
                   </div>
                 </div>
                 <ArrowUpRight className="text-primary shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </div>
+              </a>
             </TiltCard>
             </Reveal>
           ))}
